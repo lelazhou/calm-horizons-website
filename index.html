@@ -198,6 +198,10 @@
         <a class="btn btn-ghost" href="mailto:calmhorizons2026@gmail.com">Email Me</a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/liping-zhou/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
+      <p class="email-copy">
+        <span id="emailText">calmhorizons2026@gmail.com</span>
+        <button type="button" id="copyEmailBtn">Copy</button>
+      </p>
       <p class="also-on">
         Also find me on
         <a href="https://adplist.org/mentors/liping-zhou-mp31e23t" target="_blank" rel="noopener">ADPList</a>
@@ -222,6 +226,19 @@
   const links = document.getElementById('navLinks');
   toggle.addEventListener('click', () => links.classList.toggle('open'));
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  const copyBtn = document.getElementById('copyEmailBtn');
+  copyBtn.addEventListener('click', async () => {
+    const email = document.getElementById('emailText').textContent;
+    try {
+      await navigator.clipboard.writeText(email);
+      const original = copyBtn.textContent;
+      copyBtn.textContent = 'Copied!';
+      setTimeout(() => { copyBtn.textContent = original; }, 2000);
+    } catch (err) {
+      copyBtn.textContent = 'Select & copy manually';
+    }
+  });
 </script>
 
 </body>

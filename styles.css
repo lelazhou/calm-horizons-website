@@ -359,8 +359,34 @@ section.alt {
   flex-wrap: wrap;
 }
 
+.email-copy {
+  margin: 20px 0 0;
+  font-size: 0.95rem;
+  color: #4a483f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#copyEmailBtn {
+  font-family: inherit;
+  font-size: 0.85rem;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--sage-deep);
+  padding: 4px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+#copyEmailBtn:hover {
+  background: var(--cream-deep);
+}
+
 .also-on {
-  margin: 24px 0 0;
+  margin: 16px 0 0;
   font-size: 0.88rem;
   color: #8a8779;
 }
