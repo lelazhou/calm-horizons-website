@@ -5,6 +5,7 @@
   --sage: #6b7a5e;
   --sage-deep: #4d5a42;
   --terracotta: #c17a56;
+  --gold: #c99a3e;
   --line: #e3dccf;
   --max-width: 780px;
 }
@@ -137,8 +138,22 @@ nav.links a:hover {
 
 /* Hero */
 .hero {
+  position: relative;
   padding: 110px 0 90px;
   text-align: center;
+  overflow: hidden;
+}
+
+.hero-blobs {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero .kicker {
@@ -219,39 +234,44 @@ section.alt {
 /* Services */
 .services {
   display: grid;
-  gap: 36px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
 }
 
 .service-card {
-  display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 22px;
-  padding: 32px;
+  padding: 32px 28px;
   background: var(--cream);
   border: 1px solid var(--line);
   border-radius: 18px;
+  border-top: 4px solid var(--card-accent, var(--sage));
 }
 
-.service-num {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 2.4rem;
-  color: var(--terracotta);
-  line-height: 1;
+.service-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--card-accent, var(--sage)) 16%, transparent);
+  color: var(--card-accent, var(--sage-deep));
+  margin-bottom: 18px;
+}
+
+.service-icon svg {
+  width: 26px;
+  height: 26px;
 }
 
 .service-card h3 {
   margin-bottom: 10px;
+  font-size: 1.25rem;
 }
 
 .service-card p:last-child {
   margin-bottom: 0;
-}
-
-.service-card a.learn {
-  font-size: 0.92rem;
-  text-decoration: none;
-  color: var(--sage-deep);
-  border-bottom: 1px solid var(--sage);
+  font-size: 0.98rem;
+  color: #4a483f;
 }
 
 /* About */
@@ -280,28 +300,34 @@ section.alt {
   color: #55534b;
 }
 
-.highlights {
+.stat-grid {
   margin-top: 32px;
-  padding: 28px 30px;
-  background: var(--cream-deep);
-  border-radius: 16px;
-}
-
-.highlights-title {
-  font-size: 1.1rem;
-  margin-bottom: 14px;
-}
-
-.highlights ul {
-  margin: 0;
-  padding-left: 20px;
   display: grid;
-  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
-.highlights li {
-  font-size: 0.98rem;
-  color: #4a483f;
+.stat-tile {
+  padding: 18px 14px;
+  text-align: center;
+  border-radius: 14px;
+  background: var(--tile-bg, var(--cream-deep));
+}
+
+.stat-tile .stat-num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--tile-color, var(--sage-deep));
+  line-height: 1;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.stat-tile .stat-label {
+  font-size: 0.82rem;
+  color: #5a5849;
+  line-height: 1.35;
 }
 
 /* Philosophy */
@@ -312,20 +338,32 @@ section.alt {
 }
 
 .philosophy-item {
-  display: grid;
-  grid-template-columns: 40px 1fr;
+  display: flex;
+  align-items: center;
   gap: 18px;
 }
 
 .philosophy-item .mark {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.8rem;
-  color: var(--sage-deep);
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--item-accent, var(--sage)) 16%, transparent);
+  color: var(--item-accent, var(--sage-deep));
+}
+
+.philosophy-item .mark svg {
+  width: 20px;
+  height: 20px;
 }
 
 .philosophy-item p {
   margin: 0;
   color: #4a483f;
+  font-size: 1.05rem;
 }
 
 /* Future teaser */
@@ -428,8 +466,11 @@ footer {
     border-bottom: 1px solid var(--line);
     gap: 16px;
   }
-  .service-card {
+  .services {
     grid-template-columns: 1fr;
+  }
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   .about-grid {
     grid-template-columns: 1fr;
