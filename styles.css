@@ -274,6 +274,94 @@ section.alt {
   color: #4a483f;
 }
 
+.testimonials-lede {
+  font-size: 0.95rem;
+  color: #55534b;
+  margin: -18px 0 0;
+}
+
+/* Badges */
+.badges-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.badge-chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: var(--cream-deep);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.badge-emoji {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.badge-title {
+  display: block;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--charcoal);
+}
+
+.badge-meta {
+  display: block;
+  font-size: 0.78rem;
+  color: #8a8779;
+}
+
+/* Testimonials */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.testimonial-card {
+  padding: 32px 28px;
+  background: var(--cream-deep);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+}
+
+.testimonial-card .quote {
+  font-size: 1rem;
+  color: #3f3d36;
+  margin-bottom: 20px;
+}
+
+.quote-author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.author-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.author-role {
+  font-size: 0.85rem;
+  color: #8a8779;
+}
+
+.testimonials-more {
+  text-align: center;
+  margin: 40px 0 0;
+  font-size: 0.9rem;
+  color: #8a8779;
+}
+
 /* About */
 .about-grid {
   display: grid;
@@ -467,6 +555,9 @@ footer {
     gap: 16px;
   }
   .services {
+    grid-template-columns: 1fr;
+  }
+  .testimonials {
     grid-template-columns: 1fr;
   }
   .stat-grid {
